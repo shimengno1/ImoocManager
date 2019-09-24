@@ -1,5 +1,7 @@
 import React from 'react'
 import Child from './Child'
+import { Button } from "antd";
+import './index.less';
 export default class Lify extends React.Component {
   constructor(props) {
     super(props)
@@ -15,12 +17,19 @@ export default class Lify extends React.Component {
       count: this.state.count + 1
     })
   }
+  handleClick () {
+    this.setState({
+      count: this.state.count - 1
+    })
+  }
   render () {
     return (
-      <div style={{ padding: 50 }}>
+      <div className='contain'>
         <p>React生命周期介绍</p>
+        <Button type='primary' onClick={this.handleAdd}>antd点击一下</Button>
         <button onClick={this.handleAdd}>点击一下</button>
-        <p>{this.state.count}</p>
+        <button onClick={this.handleClick.bind(this)}>点击一下</button>
+        <p className='ad'>{this.state.count}</p>
         <Child name={this.state.count}></Child>
       </div>
     )
