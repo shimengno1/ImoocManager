@@ -13,7 +13,7 @@ export default class Admin extends React.Component {
         <Col span="21">
           <Header />
           <Row>
-            content
+            content1111
           </Row>
           <Footer />
         </Col>
