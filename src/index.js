@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Lify from './pages/demo/Lify';
 import Admin from './admin'
 import * as serviceWorker from './serviceWorker';
 
