@@ -4,7 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import NavLeft from './components/NavLeft'
 import './style/common.less'
-import Router from './pages/route-doem/route2/Router'
+// import Router from './pages/route-doem/route2/Router'
 export default class Admin extends React.Component {
     render () {
         return (
@@ -15,7 +15,7 @@ export default class Admin extends React.Component {
                 <Col span={21} className="main">
                     <Header />
                     <Row className="content">
-                        <Router />
+                        {this.props.children}
                     </Row>
                     <Footer />
                 </Col>
