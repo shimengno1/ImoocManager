@@ -1,16 +1,23 @@
-import React, { Component } from "react";
-import { Button, Card, Icon } from "antd";
-import "../ui.less";
-import ButtonGroup from "antd/lib/button/button-group";
+import React, { Component } from 'react'
+import { Button, Card, Icon, Radio } from 'antd'
+import '../ui.less'
+const RadioGroup = Radio.Group
+const ButtonGroup = Button.Group
 export default class Buttons extends Component {
   state = {
-    loading: true
-  };
+    loading: true,
+    size: 'default'
+  }
   handCloseLoading = () => {
     this.setState({
       loading: !this.state.loading
-    });
-  };
+    })
+  }
+  handChange = e => {
+    this.setState({
+      size: e.target.value
+    })
+  }
   render() {
     return (
       <div>
@@ -58,9 +65,58 @@ export default class Buttons extends Component {
               Go forward
               <Icon type="right"></Icon>
             </Button>
+            <Button></Button>
           </ButtonGroup>
         </Card>
+        <Card title="按钮尺寸" className="card-wrap">
+          <RadioGroup size={this.state.size} onChange={this.handChange}>
+            <Radio value="small">小</Radio>
+            <Radio value="default">中</Radio>
+            <Radio value="large">大</Radio>
+          </RadioGroup>
+          <Button type="primary" size={this.state.size}>
+            普通按钮
+          </Button>
+          <Button type="primary" size={this.state.size}>
+            普通按钮
+          </Button>
+          <Button type="primary" size={this.state.size}>
+            普通按钮
+          </Button>
+        </Card>
+        <Card title="按钮尺寸" className="card-wrap">
+          <RadioGroup size={this.state.size} onChange={this.handChange}>
+            <Radio value="small">小</Radio>
+            <Radio value="default">中</Radio>
+            <Radio value="large">大</Radio>
+          </RadioGroup>
+          <Button type="primary" size={this.state.size}>
+            普通按钮
+          </Button>
+          <Button type="primary" size={this.state.size}>
+            普通按钮
+          </Button>
+          <Button type="primary" size={this.state.size}>
+            普通按钮
+          </Button>
+        </Card>
+        <Card title="按钮尺寸" className="card-wrap">
+          <RadioGroup size={this.state.size} onChange={this.handChange}>
+            <Radio value="small">小</Radio>
+            <Radio value="default">中</Radio>
+            <Radio value="large">大</Radio>
+          </RadioGroup>
+          <Button type="primary" size={this.state.size}>
+            普通按钮
+          </Button>
+          <Button type="primary" size={this.state.size}>
+            普通按钮
+          </Button>
+          <Button type="primary" size={this.state.size}>
+            普通按钮
+          </Button>
+        </Card>
       </div>
-    );
+    )
   }
 }
