@@ -55,7 +55,7 @@ export default class Buttons extends Component {
                         关闭
           </Button>
                 </Card>
-                <Card title="按钮组">
+                <Card title="按钮组" style={{marginBottom:10}}>
                     <ButtonGroup>
                         <Button type="primary">
                             <Icon type="left"></Icon>
