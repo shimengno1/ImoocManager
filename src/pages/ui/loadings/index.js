@@ -13,8 +13,7 @@ export default class Loadings extends React.Component {
           <Spin indicator={icon} style={{ marginLeft: 10 }}></Spin>
         </Card>
         <Card title="内容遮罩">
-          <Alert></Alert>
-          
+          <Alert type="info"></Alert>
         </Card>
       </div>
     )
