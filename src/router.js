@@ -6,26 +6,28 @@ import Login from './pages/login/index'
 import NoMatch from './pages/nomatch/index'
 import Buttons from './pages/ui/buttons/index'
 import Modals from './pages/ui/modals/index'
+import Loadings from './pages/ui/loadings/index'
 export default class IRouter extends React.Component {
-    render () {
-        return (
-            <HashRouter>
-                <App>
-                    <Route path="/login" component={Login}></Route>
-                    <Route
-                        path="/admin"
-                        render={() => (
-                            <Admin>
-                                <Switch>
-                                    <Route path="/admin/ui/buttons" component={Buttons}></Route>
-                                    <Route path="/admin/ui/modals" component={Modals}></Route>
-                                    <Route component={NoMatch}></Route>
-                                </Switch>
-                            </Admin>
-                        )}
-                    ></Route>
-                </App>
-            </HashRouter>
-        )
-    }
+  render() {
+    return (
+      <HashRouter>
+        <App>
+          <Route path="/login" component={Login}></Route>
+          <Route
+            path="/admin"
+            render={() => (
+              <Admin>
+                <Switch>
+                  <Route path="/admin/ui/buttons" component={Buttons}></Route>
+                  <Route path="/admin/ui/modals" component={Modals}></Route>
+                  <Route path="/admin/ui/loadings" component={Loadings}></Route>
+                  <Route component={NoMatch}></Route>
+                </Switch>
+              </Admin>
+            )}
+          ></Route>
+        </App>
+      </HashRouter>
+    )
+  }
 }
