@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Card, Button } from "antd";
-
-class notification extends Component {
+import { Card, Button, Notification } from "antd";
+export default class notification extends Component {
   openNotification = () => {
-    notification.success({});
+    Notification.success({
+      message: '发工资了',
+      description: '上个月发工资了'
+    });
   };
   render() {
     return (
@@ -15,5 +17,3 @@ class notification extends Component {
     );
   }
 }
-
-export default notification;
