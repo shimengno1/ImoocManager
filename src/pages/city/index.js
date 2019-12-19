@@ -1,36 +1,46 @@
 import React from "react";
 import axios from "./../../axios/index";
-import utils from "./../../utils/utils";
+import Utils from "./../../utils/utils";
 import { Card, Form, Select, Button, Table } from "antd";
 const FormItem = Form.Item;
 const Option = Select.Option;
 export default class City extends React.Component {
-  state={
-
-  }
-  params={
-    page:1
-  }
+  state = {
+    list: []
+  };
+  params = {
+    page: 1
+  };
   componentDidMount() {
-
+    this.requestList();
   }
   // 默认请求接口数据
   requestList = () => {
+    let _this = this;
     axios.ajax({
-      url:'/open_city',
-      data:{
-        params:{
-          page:this.params.page
+        url: "/open_city",
+        data: {
+          params: {
+            page: _this.params.page
+          }
         }
-      }
-    }).then((res)=>{
-      this.setState({
-        list:
-      })
-    })
+      }).then(res => {
+        console.log(res);
+        let list = res.result.item_list.map((item, index) => {
+          item.key = index;
+          return item;
+        });
+        _this.setState({
+          list: list,
+          pagination: Utils.pagination(res, current => {
+            _this.params.page = current;
+            _this.requestList();
+          })
+        });
+      });
   };
   // 开通城市
-  handleOpenCity = () => { };
+  handleOpenCity = () => {};
   render() {
     const columns = [
       {
@@ -55,7 +65,12 @@ export default class City extends React.Component {
       },
       {
         title: "城市管理员",
-        dataIndex: "city_admin"
+        dataIndex: "city_admins"
+        // render(arr) {
+        //   return arr.map(item => {
+        //       return item.user_name;
+        //     }).join(",");
+        // }
       },
       {
         title: "城市开通时间",

@@ -13,15 +13,15 @@ export default class Axios {
                     reject(response.messsage);
                 }
             })
-        })
+        }).catch((err)=>{console.log(err)})
     }
 
     static ajax(options){
-        let loading;
-        if (options.data && options.data.isShowLoading !== false){
-            loading = document.getElementById('ajaxLoading');
-            loading.style.display = 'block';
-        }
+        // let loading;
+        // if (options.data && options.data.isShowLoading !== false){
+        //     loading = document.getElementById('ajaxLoading');
+        //     loading.style.display = 'block';
+        // }
         let baseApi = 'https://www.easy-mock.com/mock/5a7278e28d0c633b9c4adbd7/api';
         return new Promise((resolve,reject)=>{
             axios({
@@ -32,8 +32,8 @@ export default class Axios {
                 params: (options.data && options.data.params) || ''
             }).then((response)=>{
                 if (options.data && options.data.isShowLoading !== false) {
-                    loading = document.getElementById('ajaxLoading');
-                    loading.style.display = 'none';
+                    // loading = document.getElementById('ajaxLoading');
+                    // loading.style.display = 'none';
                 }
                 if (response.status === '200'){
                     let res = response.data;
@@ -49,6 +49,6 @@ export default class Axios {
                     reject(response.data);
                 }
             })
-        });
+        }).catch((err)=>{console.log(err)});
     }
 }
