@@ -5,11 +5,29 @@ import { Card, Form, Select, Button, Table } from "antd";
 const FormItem = Form.Item;
 const Option = Select.Option;
 export default class City extends React.Component {
+  state={
+
+  }
+  params={
+    page:1
+  }
   componentDidMount() {
 
   }
+  // 默认请求接口数据
   requestList = () => {
-    axios.ajax()
+    axios.ajax({
+      url:'/open_city',
+      data:{
+        params:{
+          page:this.params.page
+        }
+      }
+    }).then((res)=>{
+      this.setState({
+        list:
+      })
+    })
   };
   // 开通城市
   handleOpenCity = () => { };
